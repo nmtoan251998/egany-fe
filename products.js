@@ -26,8 +26,8 @@ function ProductHTMLFactory(product) {
 
     const isProductDiscount = productDiscount(productVariant[0].price, productVariant[0].compare_at_price);
     const isProductOutOfStock = productOutOfStock(productVariant[0].inventory_quantity);
-    const isProductManaged = productManaged(productVariant[0].inventory_management);
     const isAllowedToOrderWithNoProductInInventory = allowedToOrderWithNoProductInInventory(productVariant[0].inventory_policy);
+    const isProductManaged = productManaged(productVariant[0].inventory_management);
 
     let content = '';
 
@@ -69,8 +69,22 @@ function ProductHTMLFactory(product) {
                 }
             </p>
             <div class="product-buy-me">
-                <input type="number" name="" class="product-quantity-input" placeholder="Số lượng">
-                <button class="btn btn-primary btn-buy">Bấm tui nè</button>
+                ${
+                    isProductOutOfStock
+                        ?
+                            isAllowedToOrderWithNoProductInInventory
+                                ? `
+                                    <input type="number" name="" class="product-quantity-input" placeholder="Số lượng">
+                                    <button class="btn btn-primary btn-buy">Để tui order</button>
+                                `
+                                : `
+                                    <button class="btn btn-primary btn-buy" disabled>Hết hàng roài</button>
+                                ` 
+                        : `
+                            <input type="number" name="" class="product-quantity-input" placeholder="Số lượng">
+                            <button class="btn btn-primary btn-buy">Mua liền hen</button>
+                        `
+                }
             </div>
         </div>
     </div>`;
