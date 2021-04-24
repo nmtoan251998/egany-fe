@@ -24,8 +24,6 @@ function handleBuyProductBtnClick() {
                 return alert('Hong mua mà quậy hả');
             }
 
-            console.log(orderQuantity > availableQuantity, isProductManaged);
-            console.log(product.variants[0].inventory_management);
             if (orderQuantity > availableQuantity && isProductManaged === true) {
                 return alert('Hàng trong kho hỏng còn đủ, xin lỗi đằng ấy nha');
             }

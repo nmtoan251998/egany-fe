@@ -1,5 +1,5 @@
 function search(products, searchTerm) {
-    return products.find((product) => product.title === searchTerm);
+    return products.find((product) => product.title.toLowerCase() === searchTerm.toLowerCase());
 }
 
 function handleProductSubmit() {
