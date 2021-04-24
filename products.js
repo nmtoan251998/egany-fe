@@ -74,15 +74,15 @@ function ProductHTMLFactory(product) {
                         ?
                             isAllowedToOrderWithNoProductInInventory
                                 ? `
-                                    <input type="number" name="" class="product-quantity-input" placeholder="Số lượng">
-                                    <button class="btn btn-primary btn-buy">Để tui order</button>
+                                    <input type="number" id="product-order-quantity-${product.id}" class="product-quantity-input" placeholder="Số lượng">
+                                    <button class="btn btn-primary btn-buy" data-id="${product.id}">Để tui order</button>
                                 `
                                 : `
                                     <button class="btn btn-primary btn-buy" disabled>Hết hàng roài</button>
                                 ` 
                         : `
-                            <input type="number" name="" class="product-quantity-input" placeholder="Số lượng">
-                            <button class="btn btn-primary btn-buy">Mua liền hen</button>
+                            <input type="number" id="product-order-quantity-${product.id}" class="product-quantity-input" placeholder="Số lượng">
+                            <button class="btn btn-primary btn-buy" data-id="${product.id}">Mua liền hen</button>
                         `
                 }
             </div>

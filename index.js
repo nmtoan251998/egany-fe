@@ -7,4 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     getFineProducts(products);
 
     handleRenderAllBtnClick();
+
+    handleBuyProductBtnClick();
 });
