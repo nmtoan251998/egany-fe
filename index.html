@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./index.css">
+
+    <title>EGANY | Frontend Developer Entrance Test</title>
+</head>
+<body>
+    <div class="container">
+        <section class="product-search">
+            <div class="form-group">
+                <label for="product-search-by-namy">Product name</label>
+                <input type="text" class="form-control" id="product-search-by-namy" placeholder="Enter product name you wish to search">
+                <small class="form-text text-muted">Press Enter to search.</small>
+            </div>
+            <div class="product-search-result"></div>
+        </section>
+
+        <section class="all-products">
+        </section>
+    </div>
+
+    <script src="./productsData.js"></script>
+    <script src="./productsSearch.js"></script>
+    <script src="./products.js"></script>
+    <script src="./qualifiedProduct.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

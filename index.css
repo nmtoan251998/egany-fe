@@ -1,0 +1,81 @@
+.all-products {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+}
+
+.product-card {
+    width: 20em;
+    margin: .6em;
+    overflow: hidden;
+}
+
+.card-text {
+    margin: 0;
+}
+
+.product-buy-me {
+    margin-top: 10px;
+    display: flex;
+}
+
+.product-quantity-input {
+    width: 5em;
+    height: 40px;
+    margin-right: 5px;
+}
+
+.card-header {
+    padding: 0;
+    overflow: hidden;
+}
+
+.product-out-of-stock {
+    position: absolute;
+    top: 29%;
+    left: -50%;
+    z-index: 0;
+    transform: rotate(-45deg);
+    background-color: white;
+    opacity: 80%;
+    width: 200%;
+    text-align: center;
+}
+
+.product-img-out-of-stock {
+    filter: brightness(.8);
+}
+
+.product-price {
+    
+}
+
+.product-price-discount {
+    color: red;
+    opacity: 90%;
+    font-size: 1.3em;
+}
+
+.product-price-prediscount {
+    color: rgb(158, 158, 158);
+    text-decoration: line-through;
+}
+
+.currency {
+    font-size: .7em;
+    margin-right: 1.2px;
+}
+
+.product-discount-percent {
+    color: #212529;
+    background-color: #f8f9fa;
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 60%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
