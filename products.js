@@ -29,22 +29,20 @@ function ProductHTMLFactory(product) {
     const isProductManaged = productManaged(productVariant[0].inventory_management);
     const isAllowedToOrderWithNoProductInInventory = allowedToOrderWithNoProductInInventory(productVariant[0].inventory_policy);
 
-    const isProductAllowedToOrder = isProductOutOfStock === false || isProductManaged === false || isAllowedToOrderWithNoProductInInventory === true;
-
     let content = '';
 
     content = `<div class="card product-card" product-id="${product.id}">
         <div class="card-header">
             ${
-                isProductAllowedToOrder 
+                isProductOutOfStock 
                     ? `
-                        <img class="card-img-top" src="${product.image.src}" alt="Card image cap">
-                    `
-                    : `
                         <img class="card-img-top product-img-out-of-stock" src="${product.image.src}" alt="Card image cap">
                         <div class="product-out-of-stock">
                             <h4>Tạm hết hàng</h4>
                         </div>
+                    `
+                    : `
+                        <img class="card-img-top" src="${product.image.src}" alt="Card image cap">
                     `
             }
         </div>
@@ -53,9 +51,7 @@ function ProductHTMLFactory(product) {
             <p class="card-text">Hàng trong kho: <span class="badge badge-light">
             ${
                 isProductOutOfStock
-                    ? isProductAllowedToOrder
-                        ? `9999`
-                        : `Hết hàng`
+                    ? `Hết hàng`
                     : `${productVariant[0].inventory_quantity}`
             }
             </span></p>
@@ -115,4 +111,15 @@ function allowedToOrderWithNoProductInInventory(inventoryPolicy) {
 function calculateDiscountPercent(price, compareAtPrice) {
     const discoutPercent = parseInt(((price*100/compareAtPrice).toString().slice(0, 5)), 10);
     return 100 - discoutPercent;
+}
+
+function renderProductHTML(html) {
+    const allProductDiv = document.querySelector('.all-products');
+
+    if (!html) {
+        allProductDiv.innerHTML = 'No data found';    
+        return;
+    }
+
+    allProductDiv.innerHTML = html;
 }
